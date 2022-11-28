@@ -10,6 +10,7 @@ $tbl_name="bills"; // Table name
 $con = new mysqli($host, $username, $password, $db_name, 21);
 
 $homeName = $_POST['nameHome'];
+$article = $_POST['article'];
 $bill;
 
  
@@ -17,12 +18,12 @@ $sql = "select * from bills where nameHome='$homeName'";
 
 $res = mysqli_query($con,$sql);
 
-
- 
 $result = array();
  
 while($row = mysqli_fetch_array($res)){
-array_push($result,array('bill'=>$row['bill']));
+array_push($result,array('article'=>$row[2],
+'bill'=>$row[1]
+));
 }
  
 echo json_encode(array("result"=>$result));

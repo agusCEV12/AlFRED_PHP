@@ -12,12 +12,13 @@ echo $mysqli->host_info . "\n";
 
 // username and password sent from form
 $myHomeName=$_POST['nameHome'];
+$myArticle=$_POST['article'];
 $myBill=$_POST['bill'];
 
 if(empty(trim($_POST["bill"]))){
     echo "Please enter one article";
 } else{
-    $sql = "DELETE FROM bills WHERE bill = '$myBill' AND nameHome = '$myHomeName'";
+    $sql = "DELETE FROM bills WHERE nameHome = '$myHomeName' AND bill = '$myBill' ";
 }
 
 

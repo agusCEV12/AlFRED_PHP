@@ -12,13 +12,14 @@ echo $mysqli->host_info . "\n";
 
 // username and password sent from form
 $myHomeName=$_POST['nameHome'];
+$myArticle=$_POST['article'];
 $myBill=$_POST['bill'];
 
 if(empty(trim($_POST["bill"]))){
     echo "Please enter one article";
 } else{
-    $sql = "INSERT INTO bills (nameHome, bill)
-        VALUES ('$myHomeName', '$myBill')";
+    $sql = "INSERT INTO bills (nameHome, bill, article)
+        VALUES ('$myHomeName', '$myBill', '$myArticle')";
 }
 
 if ($mysqli->query($sql) === TRUE) {
